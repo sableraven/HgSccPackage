@@ -9,7 +9,7 @@
 // http://www.gnu.org/licenses/gpl-2.0.txt
 // 
 //=========================================================================
-extern alias vs11;
+//extern alias vs11;
 
 using System;
 using System.ComponentModel;
@@ -32,9 +32,9 @@ using HgSccPackage.UI;
 using System.Linq;
 using Timer = System.Windows.Forms.Timer;
 
-using __VSDIFFSERVICEOPTIONS = vs11::Microsoft.VisualStudio.Shell.Interop.__VSDIFFSERVICEOPTIONS;
-using IVsDifferenceService = vs11::Microsoft.VisualStudio.Shell.Interop.IVsDifferenceService;
-using SVsDifferenceService = vs11::Microsoft.VisualStudio.Shell.Interop.SVsDifferenceService;
+using __VSDIFFSERVICEOPTIONS =/* vs11::*/Microsoft.VisualStudio.Shell.Interop.__VSDIFFSERVICEOPTIONS;
+using IVsDifferenceService =/* vs11::*/Microsoft.VisualStudio.Shell.Interop.IVsDifferenceService;
+using SVsDifferenceService = /*vs11::*/Microsoft.VisualStudio.Shell.Interop.SVsDifferenceService;
 
 namespace HgSccPackage
 {
@@ -3239,7 +3239,14 @@ namespace HgSccPackage
 				proxy.ShowDialog();
 			}
 		}
-	}
+
+        public int GetCustomGlyphList(uint BaseIndex, out IntPtr pdwImageListHandle)
+        {
+            //throw new NotImplementedException();
+            pdwImageListHandle = IntPtr.Zero;
+            return 0;
+        }
+    }
 
 	//------------------------------------------------------------------
 	class UpdateStatusParams
